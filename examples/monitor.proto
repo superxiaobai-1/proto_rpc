@@ -1,0 +1,17 @@
+syntax = "proto3";
+package monitor;
+option cc_generic_services = true;
+
+message TestRequest { 
+  string name = 1; 
+  int32 count = 2;
+}
+
+message TestResponse {
+  bool status = 1;
+  string cpu_info = 2;
+}
+
+service TestService { 
+  rpc MonitorInfo(TestRequest) returns (TestResponse){} 
+}
